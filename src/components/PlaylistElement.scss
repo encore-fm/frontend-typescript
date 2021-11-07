@@ -10,6 +10,10 @@ $playlistElementPadding: 1em;
   border-bottom: 2px solid white;
 }
 
+.PlaylistElement--NoBorder {
+  border-bottom: none;
+}
+
 .PlaylistElement_image {
   width: 100px;
   height: 100px;
