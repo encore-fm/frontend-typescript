@@ -1,5 +1,7 @@
 import React from "react";
 import './PlaylistElement.scss';
+import {VoteButtons, VoteStatus} from "./VoteButtons";
+import SongInfo from "./SongInfo";
 
 type PlaylistElementProps = {
     songName: string
@@ -16,19 +18,20 @@ const PlaylistElement = ({songName, album, artists, suggestedBy, imageURL, isLas
     return (
         <div className={`PlaylistElement ${isLastElement ? "PlaylistElement--NoBorder" : ""}`}>
             <img className="PlaylistElement_image" src={imageURL} alt={songName}/>
-            <div className="PlaylistElement_songInfo">
-                <div className="PlaylistElement_songInfo_songName">
-                    {songName}
-                </div>
-                <div className="PlaylistElement_songInfo_album">
-                    {album}
-                </div>
-                <div className="PlaylistElement_songInfo_artists">
-                    {artists.join(', ')}
-                </div>
-                <div className="PlaylistElement_songInfo_suggestedBy">
-                    {`suggested by ${suggestedBy}`}
-                </div>
+
+            <SongInfo
+                songName={songName}
+                album={album}
+                artists={artists}
+                suggestedBy={suggestedBy}
+            />
+
+            <div className="PlaylistElement_voteButtons">
+                <VoteButtons
+                    voteStatus={VoteStatus.UP /*todo*/}
+                    onVote={() => {} /*todo*/}
+                    numVotes={3} /*todo*/
+                />
             </div>
         </div>
     )

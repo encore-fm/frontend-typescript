@@ -1,3 +1,5 @@
+@import "../variables";
+
 $playlistElementPadding: 1em;
 
 .PlaylistElement {
@@ -13,11 +15,7 @@ $playlistElementPadding: 1em;
   height: 100px;
 }
 
-.PlaylistElement_songInfo {
-  margin-left: 1em;
-  text-align: left;
-}
-
-.PlaylistElement_songInfo_suggestedBy {
-  margin-top: 1em;
+.PlaylistElement_voteButtons {
+  margin-left: auto;
+  margin-right: 1em;
 }
