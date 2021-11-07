@@ -1,0 +1,23 @@
+$playlistElementPadding: 1em;
+
+.PlaylistElement {
+  display: inline-flex;
+  width: calc(100% - ($playlistElementPadding));
+
+  padding: $playlistElementPadding;
+  border-bottom: 2px solid white;
+}
+
+.PlaylistElement_image {
+  width: 100px;
+  height: 100px;
+}
+
+.PlaylistElement_songInfo {
+  margin-left: 1em;
+  text-align: left;
+}
+
+.PlaylistElement_songInfo_suggestedBy {
+  margin-top: 1em;
+}
