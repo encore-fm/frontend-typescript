@@ -1,7 +1,9 @@
+@import '../variables';
+
 .SeekBar {
     .SeekBar_progress {
         max-width: 100%;
-        height: 10px;
-        background-color: blue;
+        height: 5px;
+        background-color: $highlight_color;
     }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import './Player.scss'
 import SeekBar from './SeekBar'
 import PlayerControls from './PlayerControls'
+import SongInfo from './SongInfo'
 
 type PlayerProps = {
     isAdmin: boolean
@@ -29,12 +30,16 @@ const Player = (props: PlayerProps) => {
                 <div className='Player_content_cover'>
                     <img src={props.currentSong.coverURL} alt={props.currentSong.name} />
                 </div>
+
                 <div className='Player_content_info'>
-                    <div className='Player_content_info_name'>{props.currentSong.name}</div>
-                    <div className='Player_content_info_artists'>{props.currentSong.artists.join(', ')}</div>
-                    <div className='Player_content_info_album'>{props.currentSong.albumName}</div>
-                    <div className='Player_content_info_suggested_by'>suggested by {props.currentSong.suggestedBy}</div>
+                    <SongInfo 
+                        songName={props.currentSong.name}
+                        album={props.currentSong.albumName}
+                        artists={props.currentSong.artists}
+                        suggestedBy={props.currentSong.suggestedBy}
+                    />
                 </div>
+                
                 <div className='Player_content_controls'>
                     <PlayerControls 
                         isAdmin={props.isAdmin}
