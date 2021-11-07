@@ -1,14 +1,14 @@
 import React from "react";
 import "./IconPlus.scss";
 
-const IconPlus = (props : IconProps) => {
-  return (
-      <div
-          className={`IconPlus ${props.highlight ? "highlight" : ""}`}
-          onClick={props.onClick}
-          style={{height: `${props.size}px`, width: `${props.size}px`}}
-      />
-  )
+const IconPlus = ({size = 30, highlight = false, onClick} : IconProps) => {
+    return (
+        <div
+            className={`IconPlus ${highlight ? "highlight" : ""}`}
+            onClick={onClick}
+            style={{height: `${size}px`, width: `${size}px`}}
+        />
+    )
 };
 
 export default IconPlus;

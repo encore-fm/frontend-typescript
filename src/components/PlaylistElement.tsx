@@ -19,12 +19,14 @@ const PlaylistElement = ({songName, album, artists, suggestedBy, imageURL, isLas
         <div className={`PlaylistElement ${isLastElement ? "PlaylistElement--NoBorder" : ""}`}>
             <img className="PlaylistElement_image" src={imageURL} alt={songName}/>
 
-            <SongInfo
-                songName={songName}
-                album={album}
-                artists={artists}
-                suggestedBy={suggestedBy}
-            />
+            <div className="PlaylistElement_songInfo">
+                <SongInfo
+                    songName={songName}
+                    album={album}
+                    artists={artists}
+                    suggestedBy={suggestedBy}
+                />
+            </div>
 
             <div className="PlaylistElement_voteButtons">
                 <VoteButtons

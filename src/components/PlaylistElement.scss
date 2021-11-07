@@ -4,10 +4,14 @@ $playlistElementPadding: 1em;
 
 .PlaylistElement {
   display: inline-flex;
-  width: calc(100% - ($playlistElementPadding));
+  width: calc(100% - 2*#{$playlistElementPadding});
 
   padding: $playlistElementPadding;
   border-bottom: 2px solid white;
+}
+
+.PlaylistElement_songInfo {
+  flex-grow: 1;
 }
 
 .PlaylistElement--NoBorder {
@@ -17,9 +21,4 @@ $playlistElementPadding: 1em;
 .PlaylistElement_image {
   width: 100px;
   height: 100px;
-}
-
-.PlaylistElement_voteButtons {
-  margin-left: auto;
-  margin-right: 1em;
 }
