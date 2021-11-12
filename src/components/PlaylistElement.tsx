@@ -1,7 +1,7 @@
-import React from "react";
-import './PlaylistElement.scss';
-import {VoteButtons, VoteStatus} from "./VoteButtons";
-import SongInfo from "./SongInfo";
+import React from 'react'
+import './PlaylistElement.scss'
+import { VoteButtons, VoteStatus } from './VoteButtons'
+import SongInfo from './SongInfo'
 
 type PlaylistElementProps = {
     songName: string
@@ -14,16 +14,24 @@ type PlaylistElementProps = {
 }
 
 const PlaylistElement = ({
-    songName, 
-    album, 
-    artists, 
-    suggestedBy, 
-    imageURL, 
-    isLastElement = false
+    songName,
+    album,
+    artists,
+    suggestedBy,
+    imageURL,
+    isLastElement = false,
 }: PlaylistElementProps) => {
     return (
-        <div className={`PlaylistElement ${isLastElement ? "PlaylistElement--NoBorder" : ""}`}>
-            <img className="PlaylistElement_image" src={imageURL} alt={songName}/>
+        <div
+            className={`PlaylistElement ${
+                isLastElement ? 'PlaylistElement--NoBorder' : ''
+            }`}
+        >
+            <img
+                className="PlaylistElement_image"
+                src={imageURL}
+                alt={songName}
+            />
 
             <div className="PlaylistElement_songInfo">
                 <SongInfo
@@ -43,6 +51,6 @@ const PlaylistElement = ({
             </div>
         </div>
     )
-};
+}
 
-export default PlaylistElement;
+export default PlaylistElement

@@ -1,7 +1,6 @@
-import React, {useEffect, useState, MouseEvent} from 'react'
+import React, { useEffect, useState, MouseEvent } from 'react'
 import classNames from 'classnames'
 import './SeekBar.scss'
-
 
 type SeekBarProps = {
     modifiable: boolean
@@ -25,48 +24,54 @@ const prettyTime = (milliseconds: number) => {
 }
 
 const SeekBar = ({
-    modifiable, 
-    duration, 
-    progress, 
-    isPlaying, 
-    onSeek 
+    modifiable,
+    duration,
+    progress,
+    isPlaying,
+    onSeek,
 }: SeekBarProps) => {
     const [state, setState] = useState<SeekBarState>({
         duration: duration,
         progress: progress,
-        isPlaying: isPlaying
+        isPlaying: isPlaying,
     })
 
     useEffect(() => {
         setState({
             duration: duration,
             progress: progress,
-            isPlaying: isPlaying
+            isPlaying: isPlaying,
         })
     }, [progress, isPlaying, duration])
 
     const tickSpeedMs = 200
     const seekBarID = 'seekbar'
-    
+
     const handleMouseDown = (event: MouseEvent<HTMLDivElement>) => {
-        if (!modifiable) return;
+        if (!modifiable) return
         const posX = event.clientX
-        const boundingBox = document.getElementById(seekBarID)?.getBoundingClientRect()
+        const boundingBox = document
+            .getElementById(seekBarID)
+            ?.getBoundingClientRect()
         if (boundingBox) {
             const ratio = (posX - boundingBox.x) / boundingBox.width
             onSeek(ratio * state.duration)
-        }        
-    };
+        }
+    }
 
     const styles = {
-        width: state.progress / state.duration * 100 + '%',
-        transition: `width ${tickSpeedMs}ms linear`
+        width: (state.progress / state.duration) * 100 + '%',
+        transition: `width ${tickSpeedMs}ms linear`,
     }
 
     return (
-        <div className={classNames('SeekBar', {modifiable})} id={seekBarID} onMouseDown={handleMouseDown}>
-            <div className='SeekBar_progress' style={styles}>
-                <div className='Time'>{prettyTime(progress)}</div>
+        <div
+            className={classNames('SeekBar', { modifiable })}
+            id={seekBarID}
+            onMouseDown={handleMouseDown}
+        >
+            <div className="SeekBar_progress" style={styles}>
+                <div className="Time">{prettyTime(progress)}</div>
             </div>
         </div>
     )

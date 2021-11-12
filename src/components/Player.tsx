@@ -47,21 +47,21 @@ const Player = ({
     }, [currentSong, isPlaying, progress])
 
     return (
-        <div className='Player'>
-            <SeekBar 
-                modifiable={isAdmin}  
+        <div className="Player">
+            <SeekBar
+                modifiable={isAdmin}
                 progress={state.progress}
                 duration={state.currentSong.duration}
                 isPlaying={state.isPlaying}
                 onSeek={onSeek}
             />
-            <div className='Player_content'>
-                <div className='Player_content_cover'>
+            <div className="Player_content">
+                <div className="Player_content_cover">
                     <img src={currentSong.coverURL} alt={currentSong.name} />
                 </div>
 
-                <div className='Player_content_info'>
-                    <SongInfo 
+                <div className="Player_content_info">
+                    <SongInfo
                         songName={state.currentSong.name}
                         album={state.currentSong.albumName}
                         artists={state.currentSong.artists}
@@ -69,8 +69,8 @@ const Player = ({
                     />
                 </div>
 
-                <div className='Player_content_controls'>
-                    <PlayerControls 
+                <div className="Player_content_controls">
+                    <PlayerControls
                         isAdmin={isAdmin}
                         isPlaying={state.isPlaying}
                         onPlay={onPlay}
@@ -78,10 +78,9 @@ const Player = ({
                         onSkip={onSkip}
                     />
                 </div>
-            </div>            
+            </div>
         </div>
     )
-
 }
 
 export default Player

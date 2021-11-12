@@ -1,21 +1,21 @@
 @import 'variables';
 
 body {
-  margin: 0;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', sans-serif;
-  font-weight: bold;
-  background-color: $background_color;
-  color: $text_color;
+    margin: 0;
+    font-family: -apple-system, 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-weight: bold;
+    background-color: $background_color;
+    color: $text_color;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 .highlight {
-  color: $highlight_color;
+    color: $highlight_color;
 }

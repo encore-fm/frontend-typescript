@@ -1,14 +1,14 @@
-import React from "react";
-import "./IconPlus.scss";
+import React from 'react'
+import './IconPlus.scss'
 
-const IconPlus = ({size = 30, highlight = false, onClick} : IconProps) => {
+const IconPlus = ({ size = 30, highlight = false, onClick }: IconProps) => {
     return (
         <div
-            className={`IconPlus ${highlight ? "highlight" : ""}`}
+            className={`IconPlus ${highlight ? 'highlight' : ''}`}
             onClick={onClick}
-            style={{height: `${size}px`, width: `${size}px`}}
+            style={{ height: `${size}px`, width: `${size}px` }}
         />
     )
-};
+}
 
-export default IconPlus;
+export default IconPlus
