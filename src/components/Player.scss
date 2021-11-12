@@ -1,23 +1,23 @@
 .Player {
-    .Player_content {
-        display: flex;
+  .Player_content {
+    display: flex;
 
-        .Player_content_cover {
-            img {
-                height: 100px;
-                width: 100px;
-            }
-        }
-
-        .Player_content_info {
-            display: flex;
-            flex-grow: 1;
-        }
-
-        .Player_content_controls {
-            display: flex;
-            align-items: center; // aligns the controls vertically
-            padding-right: 1em;
-        }
+    .Player_content_cover {
+      img {
+        height: 100px;
+        width: 100px;
+      }
     }
+
+    .Player_content_info {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .Player_content_controls {
+      display: flex;
+      align-items: center; // aligns the controls vertically
+      padding-right: 1em;
+    }
+  }
 }
