@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Player.scss'
 import SeekBar from './SeekBar'
 import PlayerControls from './PlayerControls'
@@ -16,37 +16,66 @@ type PlayerProps = {
     onSkip: () => void
 }
 
-const Player = (props: PlayerProps) => {
+type PlayerState = {
+    currentSong: Song
+    isPlaying: boolean
+    progress: number
+}
+
+const Player = ({
+    isAdmin,
+    currentSong,
+    isPlaying,
+    progress,
+    onPlay,
+    onPause,
+    onSeek,
+    onSkip,
+}: PlayerProps) => {
+    const [state, setState] = React.useState<PlayerState>({
+        currentSong,
+        isPlaying,
+        progress,
+    })
+
+    useEffect(() => {
+        setState({
+            currentSong,
+            isPlaying,
+            progress,
+        })
+    }, [currentSong, isPlaying, progress])
+
     return (
         <div className='Player'>
             <SeekBar 
-                modifiable={props.isAdmin}  
-                progress={props.progress}
-                duration={props.currentSong.duration}
-                lastUpdate={new Date()}
-                onSeek={props.onSeek}
+                modifiable={isAdmin}  
+                progress={state.progress}
+                duration={state.currentSong.duration}
+                isPlaying={state.isPlaying}
+                onSeek={onSeek}
             />
             <div className='Player_content'>
                 <div className='Player_content_cover'>
-                    <img src={props.currentSong.coverURL} alt={props.currentSong.name} />
+                    <img src={currentSong.coverURL} alt={currentSong.name} />
                 </div>
 
                 <div className='Player_content_info'>
                     <SongInfo 
-                        songName={props.currentSong.name}
-                        album={props.currentSong.albumName}
-                        artists={props.currentSong.artists}
-                        suggestedBy={props.currentSong.suggestedBy}
+                        songName={state.currentSong.name}
+                        album={state.currentSong.albumName}
+                        artists={state.currentSong.artists}
+                        suggestedBy={state.currentSong.suggestedBy}
                     />
                 </div>
-                
+
                 <div className='Player_content_controls'>
                     <PlayerControls 
-                        isAdmin={props.isAdmin}
-                        isPlaying={props.isPlaying}
-                        onPlay={props.onPlay}
-                        onPause={props.onPause}
-                        onSkip={props.onSkip}
+                        isAdmin={isAdmin}
+                        isPlaying={state.isPlaying}
+                        onPlay={onPlay}
+                        onPause={onPause}
+                        onSkip={onSkip}
                     />
                 </div>
             </div>            

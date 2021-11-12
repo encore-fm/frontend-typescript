@@ -1,9 +1,34 @@
 @import '../variables';
 
 .SeekBar {
+    background-color: white;
+
     .SeekBar_progress {
         max-width: 100%;
         height: 5px;
         background-color: $highlight_color;
+        text-align: right;
+
+        .Time {
+            font-size: 100%;
+            color: white;
+            width: fit-content; 
+            margin: 0;
+            padding: 0 0.3em;
+            display: none;
+        }
+    }
+
+    &.modifiable {
+        cursor: pointer;
+        
+        &:hover {
+            .SeekBar_progress {
+                height: unset;
+                .Time {
+                    display: inline-block;
+                }
+            }
+        }
     }
 }

@@ -2,9 +2,9 @@
   background-image: url("IconPause.svg");
   background-repeat: no-repeat;
   background-position: center center;
+  cursor: pointer;
 
-  :hover {
-    cursor: pointer;
+  &:hover {
     background-image: url("IconPauseBlue.svg");
   }
 }
