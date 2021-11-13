@@ -1,5 +1,7 @@
 @import '../variables';
 
+$seek_bar_time_height: 12px;
+
 .SeekBar {
   background-color: white;
 
@@ -10,9 +12,10 @@
     text-align: right;
 
     .Time {
-      font-size: 100%;
+      font-size: $seek_bar_time_height;
+      height: $seek_bar_time_height;
+      line-height: 1;
       color: white;
-      width: fit-content;
       margin: 0;
       padding: 0 0.3em;
       display: none;
@@ -24,9 +27,9 @@
 
     &:hover {
       .SeekBar_progress {
-        height: unset;
+        height: $seek_bar_time_height;
         .Time {
-          display: inline-block;
+          display: block;
         }
       }
     }
