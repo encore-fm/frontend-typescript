@@ -1,0 +1,8 @@
+*.html
+*.json
+*.md
+*.svg
+*.yml
+
+build
+node_modules

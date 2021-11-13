@@ -1,10 +1,10 @@
-@import "../variables";
+@import '../variables';
 
 $playlistElementPadding: 1em;
 
 .PlaylistElement {
   display: inline-flex;
-  width: calc(100% - 2*#{$playlistElementPadding});
+  width: calc(100% - 2 *#{$playlistElementPadding});
 
   padding: $playlistElementPadding;
   border-bottom: 2px solid white;

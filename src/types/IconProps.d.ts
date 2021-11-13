@@ -1,5 +1,5 @@
 type IconProps = {
-    size: number
-    highlight: boolean
-    onClick: () => void
+  size: number
+  highlight: boolean
+  onClick: () => void
 }

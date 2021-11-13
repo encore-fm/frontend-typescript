@@ -1,4 +1,4 @@
-@import "../../variables";
+@import '../../variables';
 
 .IconMinus {
   position: relative;
@@ -22,7 +22,8 @@
     transform: rotate(90deg);
   }
 
-  &.highlight:before, &.highlight:after {
+  &.highlight:before,
+  &.highlight:after {
     background-color: $highlight_color;
   }
 }

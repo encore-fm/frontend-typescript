@@ -1,0 +1,13 @@
+.PlayerControls {
+  display: flex;
+  align-items: center; // align vertically
+
+  .PlayerControls_SkipButton {
+    cursor: pointer;
+  }
+
+  .PlayerControls_PlayPause {
+    margin-left: 1em;
+    cursor: pointer;
+  }
+}
