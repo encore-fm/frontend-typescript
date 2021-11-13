@@ -1,6 +1,7 @@
 import React, { useEffect, useState, MouseEvent } from 'react'
 import classNames from 'classnames'
 import './SeekBar.scss'
+import { prettyTime } from '../util/Formatter'
 
 type SeekBarProps = {
   modifiable: boolean
@@ -14,13 +15,6 @@ type SeekBarState = {
   duration: number
   progress: number
   isPlaying: boolean
-}
-
-const prettyTime = (milliseconds: number) => {
-  const time = milliseconds / 1000
-  const minutes = Math.floor(time / 60)
-  const seconds = Math.floor(time % 60)
-  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 }
 
 const SeekBar = ({
