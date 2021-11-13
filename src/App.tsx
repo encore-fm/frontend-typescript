@@ -4,6 +4,8 @@ import './App.css'
 import Playlist from './components/Playlist'
 import Player from './components/Player'
 
+import { generateMockSearchResult } from './mock/MockSearchResult'
+
 const playlist: Song[] = [
   {
     id: '123',
@@ -67,6 +69,8 @@ function App() {
       }
     }
   }, [state.isPlaying, state.progress])
+
+  console.log(generateMockSearchResult())
 
   return (
     <div className="App">

@@ -21,7 +21,7 @@ type SpotifyTrack = {
   duration_ms: number
   explicit: boolean
   id: string
-  is_playable: boolean
+  is_playable?: boolean
   name: string
   popularity: number
   uri: string
