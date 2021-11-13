@@ -16,8 +16,8 @@ jobs:
       run: yarn install
     - name: Build
       run: yarn build
-    # - name: Prettier
-    #   run: yarn prettierlint
+    - name: Prettier
+      run: yarn prettierlint
     # - name: ESLint
     #   run: yarn eslint
     # - name: stylelint
