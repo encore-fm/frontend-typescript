@@ -1,11 +1,7 @@
 .AlbumSearchResultsElement {
-    height: calc(150px + 2em);
-    width: calc(150px + 2em);
-    padding: 1em;
-
-    // white-space: nowrap;
-    // overflow: hidden;
-    // border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
 }
 
 .AlbumSearchResultsElement_image {
@@ -14,9 +10,5 @@
 }
 
 .AlbumSearchResultsElement_albumName {
-    text-overflow: ellipsis;
-}
-
-.AlbumSearchResultsElement_artists {
-    text-overflow: ellipsis;
+    margin-top: 0.5em;
 }

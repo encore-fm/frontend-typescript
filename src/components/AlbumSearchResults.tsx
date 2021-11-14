@@ -18,7 +18,7 @@ const AlbumSearchResults = ({albums}: AlbumSearchResultsProps) => {
             </div>
 
             <div className="AlbumSearchResults_results">
-                {albums.length > 0 && albums.map((album, idx) => (
+                {albums.map((album, idx) => (
                     <AlbumSearchResultsElement
                         coverURL={album.coverURL}
                         albumName={album.albumName}
