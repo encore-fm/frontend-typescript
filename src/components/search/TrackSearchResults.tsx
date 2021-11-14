@@ -15,7 +15,7 @@ type TrackSearchResultsProps = {
 
 const TrackSearchResults = ({
   tracks,
-  maxItems = 3,
+  maxItems = 5,
 }: TrackSearchResultsProps) => {
   return (
     <div className="TrackSearchResults">

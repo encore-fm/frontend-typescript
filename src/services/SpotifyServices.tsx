@@ -1,6 +1,6 @@
 const SPOTIFY_BASE_API_URL = 'https://api.spotify.com/v1'
-const CLIENT_ID = '****'
-const CLIENT_SECRET = '****'
+const CLIENT_ID = '86d29b349f3445b588b8ccb4e504724f'
+const CLIENT_SECRET = '9a26cbb98d6f436f8b06e649cda4fc95'
 
 type AuthToken = {
   access_token?: string
@@ -39,28 +39,32 @@ const spotifySearch = async (query: string): Promise<SearchResult> => {
 // Just for testing. In future this should be done over encore backend.
 const authToken = async (): Promise<AuthToken> => {
   const storedToken = localStorage.getItem('spotifyToken')
+  console.log(storedToken)
   if (storedToken) {
     try {
       const token = JSON.parse(storedToken) as StoredAuthToken
       if (token.expiryMicros < window.performance.now()) {
         console.log('Found unexpired token.')
         return token.token
+      } else {
+        console.log('Stored token expired.')
+        console.log(token.expiryMicros)
       }
     } catch {}
   }
 
   console.log('Generating new token')
-  const token = await requestAuthToken()
+  const newToken = await requestAuthToken()
 
   console.log('Storing token.')
   const tokenStore: StoredAuthToken = {
-    token: token,
+    token: newToken,
     expiryMicros: window.performance.now(),
   }
   
   localStorage.setItem('spotifyToken', JSON.stringify(tokenStore))
 
-  return token
+  return newToken
 }
 
 const requestAuthToken = async (): Promise<AuthToken> => {
