@@ -5,12 +5,16 @@ import ArtistSearchResultsElement, {
 
 type ArtistSearchResultsProps = {
   artists: ArtistInfo[]
+  maxItems?: number
 }
 
-const ArtistSearchResults = ({ artists }: ArtistSearchResultsProps) => {
+const ArtistSearchResults = ({
+  artists,
+  maxItems = 10,
+}: ArtistSearchResultsProps) => {
   return (
     <div className="ArtistSearchResults">
-      {artists.map(({ name, imageUrl, pageUrl }, index) => (
+      {artists.slice(0, maxItems).map(({ name, imageUrl, pageUrl }, index) => (
         <ArtistSearchResultsElement
           name={name}
           imageUrl={imageUrl}

@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 import Playlist from './components/Playlist'
 import Player from './components/Player'
 
-import { generateMockSearchResult } from './mock/MockSearchResult'
-
-import ArtistSearchResults from './components/ArtistSearchResults'
-import SearchResultSection from './components/SearchResultSection'
+import SearchResults from './components/search/SearchResults'
 
 const playlist: Song[] = [
   {
@@ -73,22 +70,11 @@ function App() {
     }
   }, [state.isPlaying, state.progress])
 
-  console.log(generateMockSearchResult())
-
-  const artist = generateMockSearchResult().artists.items[0]
-  const artists = [...Array(10)].map((_) => ({
-    name: artist.name,
-    imageUrl: artist.images[0].url,
-    pageUrl: '',
-  }))
-
   return (
     <div className="App">
       <Playlist playlist={playlist} />
 
-      <SearchResultSection title="Artists">
-        <ArtistSearchResults artists={artists} />
-      </SearchResultSection>
+      <SearchResults />
 
       <div className="Player-Container">
         <Player
