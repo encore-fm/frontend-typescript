@@ -1,34 +1,32 @@
-import AlbumSearchResultsElement from "./AlbumSearchResultsElement";
+import AlbumSearchResultsElement from './AlbumSearchResultsElement'
 
-import "./AlbumSearchResults.scss"
+import './AlbumSearchResults.scss'
 
 type AlbumSearchResultsProps = {
-    albums: {
-        coverURL: string
-        albumName: string
-        artists: string[]
-    }[]
+  albums: {
+    coverURL: string
+    albumName: string
+    artists: string[]
+  }[]
 }
 
-const AlbumSearchResults = ({albums}: AlbumSearchResultsProps) => {
-    return (
-        <div className="AlbumSearchResults">
-            <div className="AlbumSearchResults_title">
-                Albums.
-            </div>
+const AlbumSearchResults = ({ albums }: AlbumSearchResultsProps) => {
+  return (
+    <div className="AlbumSearchResults">
+      <div className="AlbumSearchResults_title">Albums.</div>
 
-            <div className="AlbumSearchResults_results">
-                {albums.map((album, idx) => (
-                    <AlbumSearchResultsElement
-                        coverURL={album.coverURL}
-                        albumName={album.albumName}
-                        artists={album.artists}
-                        key={idx}
-                    />
-                ))}
-            </div>
-        </div>
-    )
+      <div className="AlbumSearchResults_results">
+        {albums.map((album, idx) => (
+          <AlbumSearchResultsElement
+            coverURL={album.coverURL}
+            albumName={album.albumName}
+            artists={album.artists}
+            key={idx}
+          />
+        ))}
+      </div>
+    </div>
+  )
 }
 
-export default AlbumSearchResults;
+export default AlbumSearchResults
