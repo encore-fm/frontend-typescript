@@ -1,0 +1,16 @@
+.TrackSearchResultsElement {
+    display: flex;
+    padding: 0 1em 0 0;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    align-items: center;
+}
+
+.TrackSearchResultsElement_image {
+    width: 100px;
+    height: 100px;
+}
+
+.TrackSearchResultsElement_songInfo {
+    flex-grow: 1;
+}
