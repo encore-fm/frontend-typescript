@@ -18,7 +18,7 @@ const TrackSearchResults = ({tracks}: TrackSearchResultsProps) => {
             <div className="TrackSearchResults_title">
                 Songs.
             </div>
-            {TrackSearchResults.length > 0 && tracks.map((track, idx) => (
+            {tracks.map((track, idx) => (
                 <TrackSearchResultsElement
                     songName={track.songName}
                     album={track.album}
