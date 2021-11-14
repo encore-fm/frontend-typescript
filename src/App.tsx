@@ -72,11 +72,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Playlist playlist={playlist} /> */}
+      <Playlist playlist={playlist} />
 
       <SearchResults />
 
-      {/* <div className="Player-Container">
+      <div className="Player-Container">
         <Player
           isAdmin={true}
           currentSong={playlist[0]}
@@ -87,7 +87,7 @@ function App() {
           onSkip={() => {}}
           onSeek={(progress) => setState((state) => ({ ...state, progress }))}
         />
-      </div> */}
+      </div>
     </div>
   )
 }
