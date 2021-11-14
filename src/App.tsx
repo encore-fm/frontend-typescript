@@ -6,6 +6,9 @@ import Player from './components/Player'
 
 import { generateMockSearchResult } from './mock/MockSearchResult'
 
+import ArtistSearchResults from './components/ArtistSearchResults'
+import SearchResultSection from './components/SearchResultSection'
+
 const playlist: Song[] = [
   {
     id: '123',
@@ -72,9 +75,20 @@ function App() {
 
   console.log(generateMockSearchResult())
 
+  const artist = generateMockSearchResult().artists.items[0]
+  const artists = [...Array(10)].map((_) => ({
+    name: artist.name,
+    imageUrl: artist.images[0].url,
+    pageUrl: '',
+  }))
+
   return (
     <div className="App">
       <Playlist playlist={playlist} />
+
+      <SearchResultSection title="Artists">
+        <ArtistSearchResults artists={artists} />
+      </SearchResultSection>
 
       <div className="Player-Container">
         <Player
