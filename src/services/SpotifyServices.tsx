@@ -17,51 +17,43 @@ const spotifySearch = async (query: string): Promise<SearchResult> => {
   const endpoint = `${SPOTIFY_BASE_API_URL}/search`
   query = sanitizeQuery(query)
 
-  const token = await authToken().catch(err => {
-    console.log('Failed to get auth token.')
+  const token = await authToken().catch((err) => {
+    console.error('Failed to get auth token.')
     return Promise.reject(err)
   })
 
   const requestString = `${endpoint}?q=${query}&type=album,artist,track,playlist`
   const headers = { Authorization: `Bearer ${token.access_token}` }
 
-  const results = await fetch(requestString, { headers: headers });
+  const results = await fetch(requestString, { headers: headers })
   if (!results.ok) {
-    console.log('Failed to fetch songs.')
-    return Promise.reject();
+    console.error('Failed to fetch songs.')
+    return Promise.reject()
   }
 
-  const searchResults = (await results.json()) as SearchResult;
+  const searchResults = (await results.json()) as SearchResult
 
-  return searchResults;
+  return searchResults
 }
 
 // Just for testing. In future this should be done over encore backend.
 const authToken = async (): Promise<AuthToken> => {
   const storedToken = localStorage.getItem('spotifyToken')
-  console.log(storedToken)
   if (storedToken) {
     try {
       const token = JSON.parse(storedToken) as StoredAuthToken
       if (token.expiryMicros < window.performance.now()) {
-        console.log('Found unexpired token.')
         return token.token
-      } else {
-        console.log('Stored token expired.')
-        console.log(token.expiryMicros)
       }
     } catch {}
   }
 
-  console.log('Generating new token')
   const newToken = await requestAuthToken()
-
-  console.log('Storing token.')
   const tokenStore: StoredAuthToken = {
     token: newToken,
     expiryMicros: window.performance.now(),
   }
-  
+
   localStorage.setItem('spotifyToken', JSON.stringify(tokenStore))
 
   return newToken

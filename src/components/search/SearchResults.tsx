@@ -10,8 +10,8 @@ type SearchResultsProps = {
   result: SearchResult
 }
 
-const SearchResults = ({result}: SearchResultsProps) => {
-  const artists = result.artists.items.map(artist => ({
+const SearchResults = ({ result }: SearchResultsProps) => {
+  const artists = result.artists.items.map((artist) => ({
     name: artist.name,
     imageUrl: artist.images[0]?.url,
     pageUrl: '',
@@ -31,13 +31,11 @@ const SearchResults = ({result}: SearchResultsProps) => {
     artists: album.artists.map((artist) => artist.name),
   }))
 
-  const playlists = result.playlists.items.map(
-    (playlist) => ({
-      name: playlist.name,
-      imageUrl: playlist.images[0].url,
-      pageUrl: '',
-    }),
-  )
+  const playlists = result.playlists.items.map((playlist) => ({
+    name: playlist.name,
+    imageUrl: playlist.images[0].url,
+    pageUrl: '',
+  }))
 
   return (
     <div className="SearchResults">
