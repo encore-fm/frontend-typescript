@@ -1,0 +1,13 @@
+@import "../variables.sass";
+
+.AlbumSearchResults_title {
+    padding: 1em;
+    text-align: left;
+    font-size: 30px;
+    color: $highlight_color;
+}
+
+.AlbumSearchResults_results {
+    display: flex;
+    overflow-x: scroll;
+}
