@@ -1,0 +1,20 @@
+.AlbumSearchResultsElement {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+
+  font-size: 12px;
+
+  .AlbumSearchResultsElement_image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .AlbumSearchResultsElement_albumName {
+    margin-top: 0.5em;
+  }
+
+  .AlbumSearchResultsElement_artists {
+    font-style: italic;
+  }
+}

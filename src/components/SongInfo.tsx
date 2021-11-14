@@ -1,4 +1,3 @@
-import React from 'react'
 import { prettyTime } from '../util/Formatter'
 import './SongInfo.scss'
 
@@ -10,7 +9,13 @@ type SongInfoProps = {
   durationMs?: number
 }
 
-const SongInfo = ({ songName, album, artists, suggestedBy, durationMs }: SongInfoProps) => {
+const SongInfo = ({
+  songName,
+  album,
+  artists,
+  suggestedBy,
+  durationMs,
+}: SongInfoProps) => {
   return (
     <div className="SongInfo">
       <div className="SongInfo_songName">{songName}</div>
@@ -19,16 +24,13 @@ const SongInfo = ({ songName, album, artists, suggestedBy, durationMs }: SongInf
 
       {suggestedBy && (
         <div className="SongInfo_suggestedBy">
-        suggested by <span className="highlight">{suggestedBy}</span>
+          suggested by <span className="highlight">{suggestedBy}</span>
         </div>
       )}
 
       {durationMs && (
-        <div className="SongInfo_duration">
-          {prettyTime(durationMs)}
-        </div>
+        <div className="SongInfo_duration">{prettyTime(durationMs)}</div>
       )}
-      
     </div>
   )
 }
