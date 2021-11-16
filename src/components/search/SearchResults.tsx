@@ -11,9 +11,11 @@ type SearchResultsProps = {
 }
 
 const SearchResults = ({ result }: SearchResultsProps) => {
+  const defaultImage = `${process.env.PUBLIC_URL}/logo512.png`
+
   const artists = result.artists.items.map((artist) => ({
     name: artist.name,
-    imageUrl: artist.images[0]?.url,
+    imageUrl: artist.images[0]?.url ?? defaultImage,
     pageUrl: '',
   }))
 
@@ -21,19 +23,19 @@ const SearchResults = ({ result }: SearchResultsProps) => {
     songName: track.name,
     album: track.album.name,
     artists: track.artists.map((artist) => artist.name),
-    imageURL: track.album.images[0]?.url,
+    imageURL: track.album.images[0]?.url ?? defaultImage,
     durationMs: track.duration_ms,
   }))
 
   const albums = result.albums.items.map((album) => ({
     albumName: album.name,
-    coverURL: album.images[0]?.url,
+    coverURL: album.images[0]?.url ?? defaultImage,
     artists: album.artists.map((artist) => artist.name),
   }))
 
   const playlists = result.playlists.items.map((playlist) => ({
     name: playlist.name,
-    imageUrl: playlist.images[0].url,
+    imageUrl: playlist.images[0]?.url ?? defaultImage,
     pageUrl: '',
   }))
 

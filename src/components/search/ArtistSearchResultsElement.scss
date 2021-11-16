@@ -1,14 +1,17 @@
+$width: 120px;
+
 .ArtistSearchResultsElement {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 1rem;
   padding: 0.5rem 0;
+  max-width: $width;
 
   .ArtistSearchResultsElement__image {
     img {
-      width: 120px;
-      height: 120px;
+      width: $width;
+      height: $width;
       border-radius: 60px;
     }
   }

@@ -11,7 +11,10 @@ const SearchResultsSection = ({
 }: SearchResultsSectionProps) => {
   return (
     <section className="SearchResultsSection">
-      <h2 className="SearchResultsSection__title">{title}</h2>
+      <header>
+        <h2 className="SearchResultsSection__title">{title}</h2>
+        <div className="SearchResultsSection__button-more">more</div>
+      </header>
       {children}
     </section>
   )
